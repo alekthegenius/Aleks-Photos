@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Parcel Sandbox</title>
-    <meta charset="UTF-8" />
-  </head>
-
   <body>
+    
+    <link rel="stylesheet" href="/photoswipe/dist/photoswipe.css">
+    
     <div id="app">
       <div class="pswp-gallery" id="my-gallery">
         <a
@@ -44,6 +42,14 @@
       </div>
     </div>
 
-    <script src="/src/index.js"></script>
+    <script type="module">
+import PhotoSwipeLightbox from 'photoswipe/dist/photoswipe-lightbox.esm.js';
+const lightbox = new PhotoSwipeLightbox({
+  gallery: '#my-gallery',
+  children: 'a',
+  pswpModule: () => import('photoswipe/dist/photoswipe.esm.js')
+});
+lightbox.init();
+</script>
   </body>
 </html>
